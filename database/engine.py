@@ -4,8 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker
 from .models import Base
 
 # По умолчанию SQLite-файл в текущей рабочей директории (async через aiosqlite)
-
- 
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///question_bot.db")
 
 if DATABASE_URL.startswith("sqlite:///"):
     DATABASE_URL = DATABASE_URL.replace("sqlite:///", "sqlite+aiosqlite:///")
